@@ -1,0 +1,57 @@
+#map {
+  height: 100%;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Info Window Styling */
+.info-window {
+  padding: 12px;
+  font-family: 'Segoe UI', Roboto, -apple-system, sans-serif;
+  min-width: 200px;
+}
+
+.neighborhood-name {
+  font-size: 18px;
+  font-weight: 600;
+  color: #2d3748;
+  margin-bottom: 8px;
+}
+
+.neighborhood-link {
+  display: inline-block;
+  text-decoration: none;
+  color: #3182ce;
+  font-size: 14px;
+  margin-top: 8px;
+  padding: 6px 12px;
+  border-radius: 4px;
+  background-color: #ebf8ff;
+  transition: all 0.2s ease;
+}
+
+.neighborhood-link:hover {
+  background-color: #bee3f8;
+  color: #2c5282;
+}
+
+/* Override Google Maps info window styles */
+.gm-style .gm-style-iw-c {
+  padding: 0 !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
+}
+
+.gm-style .gm-style-iw-d {
+  overflow: hidden !important;
+}
+
+.gm-style .gm-style-iw-t::after {
+  background: linear-gradient(45deg, #fff 50%, rgba(255,255,255,0) 51%, rgba(255,255,255,0) 100%) !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1) !important;
+}
