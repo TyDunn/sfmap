@@ -84,7 +84,7 @@ function initMap(): void {
           field.replace(/^,?"?|"?,?$/g, '').replace(/""/g, '"')
         );
 
-        const [link, coordinates, name, id, familiarity] = fields;
+        const [link, coordinates, name, familiarity] = fields;
         const familiarityScore = parseInt(familiarity) || 0;
 
         const polygon = new google.maps.Polygon({
