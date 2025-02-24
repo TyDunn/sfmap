@@ -14,7 +14,14 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthrough": true,
-    "types": ["google.maps"]
+    "types": [
+      "google.maps",
+      "vite/client" // Add this to recognize import.meta.env
+    ],
+    "baseUrl": ".",    // Add this to help with imports
+    "paths": {         // Add this to help with imports
+      "@/*": ["src/*"]
+    }
   },
-  "include": ["src"]
+  "include": ["src/**/*", "src/env.d.ts"] // Explicitly include env.d.ts
 }

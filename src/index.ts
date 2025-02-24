@@ -1,5 +1,18 @@
+import { GOOGLE_MAPS_API_KEY } from './config';
+
 let map: google.maps.Map;
 let infoWindow: google.maps.InfoWindow;
+
+async function loadGoogleMaps() {
+  const script = document.createElement('script');
+  script.src = `https://maps.googleapis.com/maps/api/js?key=${GOOGLE_MAPS_API_KEY}`;
+  document.head.appendChild(script);
+  
+  return new Promise((resolve, reject) => {
+    script.onload = resolve;
+    script.onerror = reject;
+  });
+}
 
 // Function to get color based on familiarity score (0-10)
 function getFamiliarityColor(score: number): string {
@@ -124,7 +137,16 @@ function initMap(): void {
     });
 }
 
-window.onload = initMap;
+async function initialize() {
+  try {
+    await loadGoogleMaps();
+    initMap();
+  } catch (error) {
+    console.error('Failed to load Google Maps:', error);
+  }
+}
+
+window.onload = initialize;
 
 declare global {
   interface Window {
